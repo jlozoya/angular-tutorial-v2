@@ -1,15 +1,21 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatButtonModule,
+        MatCardModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        CardsComponent
       ],
     }).compileComponents();
   }));
@@ -26,10 +32,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-tutorial-v2');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render the cards component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-tutorial-v2!');
+    expect(compiled.querySelector('app-cards')).toBeTruthy();
   });
 });

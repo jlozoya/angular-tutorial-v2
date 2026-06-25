@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
+  standalone: false,
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss']
 })
